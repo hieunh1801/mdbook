@@ -175,15 +175,20 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="hướng-dẫn-sử-dụng-mdbook"><a class="header" href="#hướng-dẫn-sử-dụng-mdbook">Hướng dẫn sử dụng mdbook</a></h1>
-<pre><code class="language-bash"># to run
+<pre><code class="language-bash"># to install
+brew install mdbook
+
+# to init new book
+mdbook init book_name
+
+# to run
 mdbook serve --open
 
 # to build
 mdbook build
 
 # to deploy to gh-pages
-</code></pre>
-<pre><code>
+git subtree push --prefix book origin gh-pages
 </code></pre>
 
                     </main>
@@ -203,22 +208,6 @@ mdbook build
 
         </div>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script>
-            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-            const socket = new WebSocket(wsAddress);
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
 
 
 
